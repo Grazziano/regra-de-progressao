@@ -37,7 +37,7 @@ public class App {
     }
 
     int sum = Arrays.stream(weightActivities).sum();
-    if(sum > 100 || sum < 100) {
+    if (sum > 100 || sum < 100) {
       System.out.println("A soma dos pesos é diferente de 100!");
     }
   }
