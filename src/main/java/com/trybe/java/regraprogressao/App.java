@@ -1,5 +1,6 @@
 package com.trybe.java.regraprogressao;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -33,6 +34,11 @@ public class App {
       activityNames[i] = currentActivityName;
       weightActivities[i] = currentActivityWeight;
       activityNotes[i] = currentNote;
+    }
+
+    int sum = Arrays.stream(weightActivities).sum();
+    if(sum > 100 || sum < 100) {
+      System.out.println("A soma dos pesos é diferente de 100!");
     }
   }
 }
