@@ -36,9 +36,30 @@ public class App {
       activityNotes[i] = currentNote;
     }
 
-    int sum = Arrays.stream(weightActivities).sum();
-    if (sum > 100 || sum < 100) {
+    int sumOfWeights = Arrays.stream(weightActivities).sum();
+    if (sumOfWeights > 100 || sumOfWeights < 100) {
       System.out.println("A soma dos pesos é diferente de 100!");
+    }
+
+    float sum = 0;
+
+    for (int i = 0; i < numberOfActivitiesToRegister; i++) {
+      sum += weightActivities[i] * activityNotes[i];
+    }
+
+    float media = sum / sumOfWeights;
+
+    String result = String.format("%.1f", media);
+
+    if (media >= 85) {
+      System.out.println("Parabéns! Você alcançou "
+              + result.replace(",", ".")
+              + "%! E temos o prazer de informar que você obteve aprovação!");
+    } else if (media < 85) {
+      System.out.println(
+              "Lamentamos informar que, com base na sua pontuação alcançada neste período, "
+                      + result.replace(",", ".")
+                      + "%, você não atingiu a pontuação mínima necessária para sua aprovação.");
     }
   }
 }
